@@ -1,6 +1,6 @@
-# Python per principianti — 200 esempi in italiano
+# Python per principianti — 220 esempi in italiano
 
-Il percorso contiene **200 esempi autonomi**, organizzati in 20 cartelle tematiche. Gli esempi 1–100 coprono le basi; gli esempi 101–200 introducono API, database, sicurezza, concetti finanziari simulati, test e concorrenza.
+Il percorso contiene 220 esempi autonomi in 21 cartelle tematiche: basi Python, librerie standard, API, database, sicurezza, test e concorrenza. Gli esempi sono didattici e commentati in italiano.
 
 ## Requisiti e avvio
 
@@ -13,30 +13,29 @@ python main.py
 Per eseguire un singolo esempio:
 
 ```bash
-python esempi/11_api_http/101_richiesta_get.py
+python esempi/21_api_client/201_get_header_query_path.py
 ```
 
-## Nuovi capitoli 101–200
+Gli esempi 201–220 sono raccolti in `esempi/21_api_client/`. Una guida pratica è disponibile in `esempi/21_api_client/README.md`.
 
-- `11_api_http`: URL, richieste HTTP opt-in, JSON, timeout e token da ambiente.
-- `12_api_server`: handler didattici e concetti base di endpoint HTTP.
-- `13_dati_validazione`: JSON, controlli input, tipi e contratti.
-- `14_database`: SQLite in memoria, SQL parametrizzato e transazioni.
-- `15_dominio_bancario`: importi Decimal/centesimi, ledger e idempotenza simulati.
-- `16_sicurezza_config`: configurazione e segreti, TLS, hash, input e privilegi.
-- `17_affidabilita_osservabilita`: logging, retry, timeout, health check e metriche.
-- `18_tempo_importi`: precisione decimale, UTC, date e identificativi.
-- `19_test_automazione`: unittest, mock, file temporanei, CSV e CLI.
-- `20_concorrenza`: queue, thread, asyncio, generatori e checklist.
+## Abilitare una chiamata API
 
-## Nota importante su API e servizi esterni
+Le richieste di rete sono disattivate per impostazione predefinita. Per attivare una demo verso un'API di test:
 
-Gli esempi **non contattano servizi esterni per impostazione predefinita**. L'esempio HTTP 101 richiede l'impostazione esplicita di `ESEMPIO_RETE=1`; il 102 usa `API_URL` configurabile. Usa solo sandbox e servizi per cui hai autorizzazione, con timeout. Non inserire mai credenziali nel codice o nei log.
+```bash
+ESEMPIO_RETE=1 python esempi/21_api_client/201_get_header_query_path.py
+```
+
+Gli esempi usano `urllib`, incluso in Python; `API_BASE_URL` può indicare il base URL di un servizio di test autorizzato. Alcuni esempi usano JSONPlaceholder come servizio pubblico dimostrativo. Non inviare credenziali o dati reali a servizi pubblici. I POST/PUT/PATCH/DELETE vanno provati solo su sandbox autorizzate.
+
+## Contenuti API aggiunti
+
+Header e request ID; path parameter codificati; query string; body JSON e form; GET/POST/PATCH/DELETE; Bearer e Basic Auth didattici; gestione errori HTTP/rete e body JSON; controlli status e Content-Type; limiti response; paginazione; timeout e retry limitati; idempotency key; ETag/304; checklist di sicurezza.
+
+## Librerie standard mostrate
+
+`urllib`, `urllib.parse`, `http.server`, `json`, `sqlite3`, `decimal`, `datetime`, `ssl`, `hashlib`, `secrets`, `logging`, `unittest`, `unittest.mock`, `tempfile`, `pathlib`, `asyncio`, `threading`, `queue`, `csv`, `argparse`, `dataclasses`, `enum`, `statistics`, `calendar`, `collections` e altre.
 
 ## Nota per contesti bancari/enterprise
 
-Questi esempi sono materiale didattico, non software bancario pronto per la produzione e non sostituiscono revisioni di sicurezza, architettura, compliance o controlli aziendali. Gli esempi DB usano SQLite in memoria; i movimenti sono simulati. Un sistema reale richiede, tra le altre cose, autorizzazioni e segregazione dei ruoli, audit, gestione sicura delle chiavi, cifratura, idempotenza, transazioni e locking adeguati, monitoraggio, test, procedure di recovery e revisione specialistica. Non usare dati reali di clienti o account.
-
-### Librerie standard mostrate
-
-`urllib`, `http.server`, `urllib.parse`, `json`, `sqlite3`, `decimal`, `datetime`, `ssl`, `hashlib`, `secrets`, `logging`, `unittest`, `unittest.mock`, `tempfile`, `pathlib`, `asyncio`, `threading`, `queue`, `csv`, `argparse`, `dataclasses`, `enum`, `statistics`, `calendar`, `collections` e altre.
+Questi esempi sono materiale didattico, non software bancario pronto per la produzione e non sostituiscono revisioni di sicurezza, architettura, compliance o controlli aziendali. Gli esempi DB usano SQLite in memoria; i movimenti sono simulati. Un sistema reale richiede autorizzazioni e segregazione dei ruoli, audit, gestione sicura delle chiavi, cifratura, idempotenza, transazioni e locking adeguati, monitoraggio, test, procedure di recovery e revisione specialistica. Non usare dati reali di clienti o account.
