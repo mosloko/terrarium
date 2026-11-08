@@ -1,0 +1,2 @@
+# Non servono dipendenze esterne.
+# Gli esempi usano soltanto Python 3.10+ e la libreria standard.
