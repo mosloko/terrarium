@@ -1,2 +1,3 @@
-# Nessuna dipendenza esterna richiesta.
-# Gli esempi usano Python 3.10+ e la libreria standard.
+# Librerie esterne usate dagli esempi di firma e cifratura JWT/JWS/JWE.
+PyJWT[crypto]>=2.8,<3
+jwcrypto>=1.5,<2
