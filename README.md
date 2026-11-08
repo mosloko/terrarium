@@ -1,47 +1,42 @@
-# Python per principianti — 100 esempi in italiano
+# Python per principianti — 200 esempi in italiano
 
-Ho riorganizzato gli esempi in **100 file Python separati**, raggruppati in 10 cartelle tematiche. Ogni file è un esempio autonomo, numerato e commentato in italiano.
+Il percorso contiene **200 esempi autonomi**, organizzati in 20 cartelle tematiche. Gli esempi 1–100 coprono le basi; gli esempi 101–200 introducono API, database, sicurezza, concetti finanziari simulati, test e concorrenza.
 
-## Requisiti
+## Requisiti e avvio
 
-- Python 3.10 o successivo.
-- Nessuna dipendenza esterna: si usano solo Python e la sua libreria standard.
-
-## Avvio
-
-Per eseguire tutti gli esempi in sequenza:
+Serve Python 3.10 o successivo. Non sono richiesti pacchetti esterni: viene usata la libreria standard.
 
 ```bash
 python main.py
 ```
 
-Puoi anche eseguire un solo esempio direttamente, per esempio:
+Per eseguire un singolo esempio:
 
 ```bash
-python esempi/01_fondamenta/01_variabili.py
+python esempi/11_api_http/101_richiesta_get.py
 ```
 
-Su alcuni sistemi il comando è `python3` invece di `python`.
+## Nuovi capitoli 101–200
 
-## Cartelle
+- `11_api_http`: URL, richieste HTTP opt-in, JSON, timeout e token da ambiente.
+- `12_api_server`: handler didattici e concetti base di endpoint HTTP.
+- `13_dati_validazione`: JSON, controlli input, tipi e contratti.
+- `14_database`: SQLite in memoria, SQL parametrizzato e transazioni.
+- `15_dominio_bancario`: importi Decimal/centesimi, ledger e idempotenza simulati.
+- `16_sicurezza_config`: configurazione e segreti, TLS, hash, input e privilegi.
+- `17_affidabilita_osservabilita`: logging, retry, timeout, health check e metriche.
+- `18_tempo_importi`: precisione decimale, UTC, date e identificativi.
+- `19_test_automazione`: unittest, mock, file temporanei, CSV e CLI.
+- `20_concorrenza`: queue, thread, asyncio, generatori e checklist.
 
-- `esempi/01_fondamenta/`: variabili, tipi e operatori.
-- `esempi/02_stringhe/`: manipolazione del testo.
-- `esempi/03_collezioni/`: liste, tuple, set e dizionari.
-- `esempi/04_condizioni/`: confronti e decisioni.
-- `esempi/05_cicli/`: ripetizioni, `for`, `while` e strumenti di iterazione.
-- `esempi/06_funzioni/`: funzioni, parametri e valori restituiti.
-- `esempi/07_strumenti/`: comprehension e utilità per iterare.
-- `esempi/08_errori_file/`: eccezioni, file temporanei e JSON.
-- `esempi/09_classi/`: classi, oggetti ed ereditarietà.
-- `esempi/10_librerie/`: moduli utili della libreria standard.
+## Nota importante su API e servizi esterni
 
-## Librerie spiegate negli esempi
+Gli esempi **non contattano servizi esterni per impostazione predefinita**. L'esempio HTTP 101 richiede l'impostazione esplicita di `ESEMPIO_RETE=1`; il 102 usa `API_URL` configurabile. Usa solo sandbox e servizi per cui hai autorizzazione, con timeout. Non inserire mai credenziali nel codice o nei log.
 
-Sono tutte incluse in Python, quindi non serve installarle: `math` per la matematica, `random` per scelte casuali, `datetime` per date e orari, `statistics` per media e mediana, `pathlib` per i percorsi, `re` per cercare schemi nel testo, `calendar` per calendari, `collections` per contatori, `string` per modelli di testo, `pprint` per stampare strutture dati e `dataclasses` per semplici classi di dati.
+## Nota per contesti bancari/enterprise
 
-Gli esempi sui file usano una cartella temporanea, che viene eliminata automaticamente: non modificano file permanenti.
+Questi esempi sono materiale didattico, non software bancario pronto per la produzione e non sostituiscono revisioni di sicurezza, architettura, compliance o controlli aziendali. Gli esempi DB usano SQLite in memoria; i movimenti sono simulati. Un sistema reale richiede, tra le altre cose, autorizzazioni e segregazione dei ruoli, audit, gestione sicura delle chiavi, cifratura, idempotenza, transazioni e locking adeguati, monitoraggio, test, procedure di recovery e revisione specialistica. Non usare dati reali di clienti o account.
 
-## Come studiare
+### Librerie standard mostrate
 
-Leggi i commenti, prova a prevedere il risultato e poi esegui il file. Modifica i valori per osservare cosa cambia. Puoi cominciare dai primi capitoli e procedere nell'ordine numerico.
+`urllib`, `http.server`, `urllib.parse`, `json`, `sqlite3`, `decimal`, `datetime`, `ssl`, `hashlib`, `secrets`, `logging`, `unittest`, `unittest.mock`, `tempfile`, `pathlib`, `asyncio`, `threading`, `queue`, `csv`, `argparse`, `dataclasses`, `enum`, `statistics`, `calendar`, `collections` e altre.
